@@ -1,0 +1,38 @@
+<html>
+
+<head>
+<title>Functions</title>
+<style>
+.functions {
+    column-count: auto;
+    column-width: 17em;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.unchanged {
+    color: lightgrey;
+}
+.removed {
+    color: darkred;
+    text-decoration: line-through;
+}
+.added {
+    color: darkgreen;
+}
+</style>
+</head>
+
+<body>
+
+<ul class="functions">
+    {% for function in functions %}
+    <li class="{{'removed' if function not in cloudlibc_functions
+                 else 'added' if function not in glibc_functions
+                 else 'unchanged'}}">{{function}}</li>
+    {% endfor %}
+</ul>
+
+</body>
+
+</html>
